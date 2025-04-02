@@ -29,26 +29,22 @@
       <div class="right-image">
         <img src="./images/volume-of-sphere.png" alt="Volume of Sphere image" width="500" />
       </div>
-      <br />
-      <div class="page-content-heading">Formula</div>
-      <div class="page-content-heading">V = ⁴⁄₃πr³</div>
-      <div class="page-content">Please enter integers for radius:</div>
       <div class="page-content-php">
-        <form action="answer.php" method="GET">
-          <label class="page-content">Radius: </label>
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="radius-of-sphere" />
-            <label class="mdl-textfield__label" for="radius-of-sphere">radius of sphere (mm)</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-          </div>
-          <label class="page-content">mm</label>
-          <br />
-          <!-- Accent-colored raised button with ripple -->
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-            type="submit">
-            Calculate
-          </button>
-        </form>
+        <div id="answer">
+          <?php
+          // input
+          $radiusOfSphere = $_GET["radius-of-sphere"];
+
+          // process
+          $volumeOfSphere = (4 / 3) * pi() * pow($radiusOfSphere, 3);
+
+          // output
+          echo "The Volume of a Sphere is " . round($volumeOfSphere, 2) . " mm³";
+          ?>
+        </div>
+      </div>
+      <div class="page-content-return">
+        <a href="./index.php">Return ...</a>
       </div>
     </main>
   </div>
